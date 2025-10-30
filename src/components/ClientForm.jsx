@@ -19,6 +19,7 @@ const ClientForm = ({ prefillEmail = '' }) => {
   });
 
   const [successOpen, setSuccessOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(null);
 
   const handleChange = (e) => {
     const { name, value, type, checked, files } = e.target;
@@ -31,7 +32,9 @@ const ClientForm = ({ prefillEmail = '' }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Client Form Data:', formData);
+    setSubmitted(formData);
     setSuccessOpen(true);
+
     setTimeout(() => {
       const total = Math.max(
         document.body.scrollHeight,
@@ -197,10 +200,8 @@ const ClientForm = ({ prefillEmail = '' }) => {
         />
       </div>
 
-      
-
       <button type="submit" className="submit-btn">{t('client.submit')}</button>
-      <SuccessModal open={successOpen} onClose={() => setSuccessOpen(false)} />
+      <SuccessModal open={successOpen} onClose={() => setSuccessOpen(false)} data={submitted || {}} reportType="client" />
     </form>
   );
 };

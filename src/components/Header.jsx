@@ -28,6 +28,7 @@ const Header = () => {
       <div className="header-actions">
         <Link className="header-link" to="/">{t('nav.home')}</Link>
         <Link className="header-link" to="/plainte">{t('nav.report')}</Link>
+        <Link className="header-link" to="/suivi">{t('nav.track')}</Link>
         <Link className="header-link" to="/politique-anti-corruption">{t('nav.policy')}</Link>
         <Link className="header-link" to="/about">{t('nav.about')}</Link>
       </div>

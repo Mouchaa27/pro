@@ -8,6 +8,8 @@ import Accueil from './pages/Accueil.jsx';
 import PoserUnePlainte from './pages/PoserUnePlainte.jsx';
 import PolitiqueAntiCorruption from './pages/PolitiqueAntiCorruption.jsx';
 import About from './pages/About.jsx';
+import SuiviSignalements from './pages/SuiviSignalements.jsx';
+import Admin from './pages/Admin.jsx';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/plainte" element={<PoserUnePlainte />} />
           <Route path="/politique-anti-corruption" element={<PolitiqueAntiCorruption />} />
           <Route path="/about" element={<About />} />
+          <Route path="/suivi" element={<SuiviSignalements />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </div>
       <Footer />

@@ -17,6 +17,7 @@ const ExternalForm = ({ prefillEmail = '' }) => {
   });
 
   const [successOpen, setSuccessOpen] = useState(false);
+  const [submitted, setSubmitted] = useState(null);
   const formRef = useRef(null);
 
   const handleChange = (e) => {
@@ -30,7 +31,9 @@ const ExternalForm = ({ prefillEmail = '' }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('External Form Data:', formData);
+    setSubmitted(formData);
     setSuccessOpen(true);
+
     setTimeout(() => {
       if (formRef.current) {
         const rect = formRef.current.getBoundingClientRect();
@@ -170,7 +173,7 @@ const ExternalForm = ({ prefillEmail = '' }) => {
       
 
       <button type="submit" className="submit-btn">{t('external.submit')}</button>
-      <SuccessModal open={successOpen} onClose={() => setSuccessOpen(false)} />
+      <SuccessModal open={successOpen} onClose={() => setSuccessOpen(false)} data={submitted || {}} reportType="external" />
     </form>
   );
 };
